@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRONTEND STORE</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img class="header_logo" src="../img/logo.png" alt="Logotipo">
+        </a>
+    </header>
+
+   <nav class="navegacion">
+    <a class="navegacion_enlace navegacion_enlace--activo" href="index.html">Tienda</a>
+    <a class="navegacion_enlace" href="nosotros.html">Nosotros</a>
+    <a class="navegacion_enlace" href="juego.html" style="color: var(--secundario);">🎮 Gana Saldo</a>
+    <span id="userMenu" style="margin-left: auto; display: flex; gap: 1rem; align-items: center; margin-right: 2rem;"></span>
+</nav>
+
+    <div id="carritoSeccion" class="contenedor" style="background: var(--primarioOscuro); padding: 2rem; margin-bottom: 2rem; display: none; border-radius: 1rem;">
+        <h3 style="color: var(--blanco); margin-top: 0;">Carrito de Compras (<span id="totalCarrito">$0</span>)</h3>
+        <ul id="listaCarrito" style="color: var(--blanco); font-family: Arial, Helvetica, sans-serif; font-size: 1.8rem;"></ul>
+        <button onclick="finalizarCompra()" class="formulario__submit" style="width: auto; padding: 1rem 2rem; margin-top: 1rem;">Finalizar Compra</button>
+    </div>
+
+    <main class="contenedor">
+        <h1>Nuestros Productos</h1>
+
+        <div class="grid">
+            <div class="producto">
+                <img class="producto__imagen" src="img/1.jpg" alt="imagen camisa Vue JS">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Vue JS</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Vue JS', 10000)">Añadir al Carrito</button>
+                </div>
+            </div> 
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/2.jpg" alt="imagen camisa Angular">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Angular</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Angular', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/3.jpg" alt="imagen camisa React JS">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">React JS</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('React JS', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/4.jpg" alt="imagen camisa Redux">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Redux</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Redux', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/5.jpg" alt="imagen camisa Node JS">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Node JS</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Node JS', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/6.jpg" alt="imagen camisa Sass">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Sass</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Sass', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/7.jpg" alt="imagen camisa HTML 5">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">HTML 5</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('HTML 5', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/8.jpg" alt="imagen camisa Github">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Github</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Github', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/9.jpg" alt="imagen camisa Bulma CSS">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Bulma CSS</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Bulma CSS', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/10.jpg" alt="imagen camisa TypeScript">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">TypeScript</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('TypeScript', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/11.jpg" alt="imagen camisa Drupal">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Drupal</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Drupal', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/12.jpg" alt="imagen camisa JavaScript">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">JavaScript</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('JavaScript', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/13.jpg" alt="imagen camisa Graph QL">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">Graph QL</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('Graph QL', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="producto">
+                <img class="producto__imagen" src="img/14.jpg" alt="imagen camisa WordPress">
+                <div class="producto__informacion">
+                    <p class="producto__nombre">WordPress</p>
+                    <p class="producto__precio">$10.000</p>
+                    <button class="formulario__submit" style="padding: 1rem; font-size: 1.5rem; width: 100%;" onclick="agregarAlCarrito('WordPress', 10000)">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="grafico grafico--camisas"></div>
+            <div class="grafico grafico--node"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__texto">Front End Store - Todos los derechos reservados 2026</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
