@@ -1,6 +1,4 @@
-// AQUI ESTÁ EL CAMBIO PRINCIPAL: Se usa la URL de Render
 const API_URL = 'https://frontendstore-con-neon-remder.onrender.com/api';
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let usuarioActual = JSON.parse(localStorage.getItem('usuario')) || null;
 
@@ -130,6 +128,12 @@ function renderCarrito() {
         <button onclick="eliminarDelCarrito(${index})" style="background: red; color: white; border: none; cursor: pointer;">X</button></li>`;
     });
     totalSpan.textContent = `$${total}`;
+}
+
+function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    renderCarrito();
 }
 
 async function finalizarCompra() {
